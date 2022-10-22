@@ -20,11 +20,15 @@ const Led = (props) => {
     pushingBotton,
     setCorrectTry,
     correctTry,
+    iniciarJuego,
   } = props;
   const botonRef = useRef();
 
   useEffect(() => {}, []);
   const clickOnButton = () => {
+    if (!iniciarJuego) {
+      return;
+    }
     console.log("ID: ", id);
     setPushingBotton(!pushingBotton);
     setLedWorking(id);
@@ -71,7 +75,9 @@ const Led = (props) => {
         background: isWorking ? color : "",
       }}
       onClick={clickOnButton}
-    ></div>
+    >
+      {id}
+    </div>
   );
 };
 

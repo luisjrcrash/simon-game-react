@@ -56,7 +56,9 @@ export default function App() {
 
   useEffect(() => {
     // if (!iniciarJuego) return;
-
+    if (!iniciarJuego) {
+      return;
+    }
     console.log("JUEGO INICIAL");
     console.log(ledInicial);
     console.log("secuence: ", secuence);
@@ -91,6 +93,9 @@ export default function App() {
   //////FIN DE SECUENCIA CORRECTA
 
   useEffect(() => {
+    if (!iniciarJuego) {
+      return;
+    }
     // if (!iniciarJuego) return;
     setIndexLedUsed(0);
     // setLedWorking(secuence[0]);
@@ -98,6 +103,9 @@ export default function App() {
 
   useEffect(() => {
     console.log("USE EFFECT");
+    if (!iniciarJuego) {
+      return;
+    }
     // if (!iniciarJuego) return;
     setColorsLed([
       {
@@ -190,10 +198,24 @@ export default function App() {
               setPushingBotton={setPushingBotton}
               correctTry={correctTry}
               setCorrectTry={setCorrectTry}
+              iniciarJuego={iniciarJuego}
+              setIniciarJuego={setIniciarJuego}
             />
           );
         })}
-        <button>{!iniciarJuego ? "INICIAR JUEGO" : "DETENER JUEGO"}</button>
+        <button
+          onClick={
+            iniciarJuego
+              ? () => {
+                  setIniciarJuego(false);
+                }
+              : () => {
+                  setIniciarJuego(true);
+                }
+          }
+        >
+          {!iniciarJuego ? "INICIAR JUEGO" : "DETENER JUEGO"}
+        </button>
       </div>
     </div>
   );
