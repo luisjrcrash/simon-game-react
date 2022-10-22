@@ -42,7 +42,8 @@ const Led = (props) => {
     ////JUGADOR INGRESO MAL SECUENCIA
     if (!arraysEqual(secuence, [...userSecuence, id])) {
       setUserSecuence([]);
-      alert("PERDISTE, VUELVE A COMENZAR");
+      setCorrectTry(true);
+      console.log("PERDISTE, VUELVE A COMENZAR!!!!!!!!!!!!!!!!");
       return;
     }
     ////JUGADOR INGRESO BIEN LA SECUENCIA

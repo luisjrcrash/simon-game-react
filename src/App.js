@@ -94,7 +94,7 @@ export default function App() {
     // if (!iniciarJuego) return;
     setIndexLedUsed(0);
     // setLedWorking(secuence[0]);
-  }, [secuence, iniciarJuego]);
+  }, [secuence, iniciarJuego, correctTry]);
 
   useEffect(() => {
     console.log("USE EFFECT");
